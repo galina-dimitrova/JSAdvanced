@@ -149,6 +149,10 @@ describe('test warehouse', function() {
         it("should add", function() {
             assert.deepEqual(warehouse.addProduct('Food','apple', 3), {'apple': 3})
         });
+        it("should sum", function() {
+            warehouse.addProduct('Food','apple', 1)
+            assert.deepEqual(warehouse.addProduct('Food','apple', 2), {'apple': 3})
+        });
         it("should throw string for full", function() {
             let expect = warehouse.addProduct('Food','apple', 6)
              assert.throw(expect, 'There is not enough space or the warehouse is already full')
